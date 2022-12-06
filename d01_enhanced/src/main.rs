@@ -1,3 +1,6 @@
+//! main.rs docs
+//!
+
 mod explore;
 
 fn main() {
