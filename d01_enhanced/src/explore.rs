@@ -38,9 +38,9 @@ pub fn add_three(n1: i32, n2: i32, n3: i32) -> i32 {
 ///
 /// creating a private function to check that local testing still works with it
 /// even though documentation testing apparently does not
-/// ```
-/// // let result = mult_three(1, 2, 3);
-/// // assert_eq!(result, 7);
+/// ```ignore
+/// let result = mult_three(1, 2, 3);
+/// assert_eq!(result, 7);
 /// ```
 fn mult_three(n1: i32, n2: i32, n3: i32) -> i32 {
     n1 * n2 * n3
