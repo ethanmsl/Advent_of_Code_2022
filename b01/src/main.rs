@@ -2,9 +2,7 @@
 use std::fs;
 
 fn main() {
-    let input = fs::read_to_string("input").unwrap();
-
-    // .expect("Error reading input file");
+    let input = fs::read_to_string("input").expect("Error reading input file");
     let lines = input.lines();
 
     // []
@@ -17,13 +15,18 @@ fn main() {
     //      }
     // }
 
+    // sum all sections that are contiguous wrt containing numbers
     let mut accumulator: u64 = 0;
     for line in lines {
         match line {
+            // blank line divider
             "" => {
+                // under the assumption of a single blank line divider
+                // contiguous sections: push accumulated sum to vec
                 elf_vec.push(accumulator);
                 accumulator = 0;
             }
+            // something readable as u64
             _ => {
                 accumulator += line.parse::<u64>().unwrap();
             }
