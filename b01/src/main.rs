@@ -2,7 +2,7 @@
 use std::fs;
 
 fn main() {
-    let input = fs::read_to_string("input").as_ref().unwrap();
+    let input = fs::read_to_string("input").unwrap();
 
     // .expect("Error reading input file");
     let lines = input.lines();
