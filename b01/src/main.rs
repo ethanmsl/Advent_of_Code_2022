@@ -6,8 +6,7 @@ fn main() {
 
     let input = 
         fs::read_to_string("input")
-        .as_ref()
-        .is_ok();
+        .unwrap();
 
 
 
