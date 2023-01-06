@@ -29,14 +29,29 @@ fn main() {
     {
         // checking the results step-by-step
         let answer = "12\n13\n\n5\n\n3456\n245";
-        let answer = dbg!(answer).lines();
-        let answer = dbg!(answer).map(|v| v.parse::<u64>().ok());
-        let answer = dbg!(answer).batching(|mut it| (&mut it).map_while(|x| x).sum1::<u64>());
-        let answer = dbg!(answer).map(Reverse);
-        let answer = dbg!(answer).k_smallest(2);
-        let answer = dbg!(answer).map(|x| x.0);
-        let answer = dbg!(answer).collect::<Vec<_>>();
-        let answer = dbg!(answer);
+        let answer = answer.lines();
+        let answer = answer.map(|v| v.parse::<u64>().ok());
+        let answer = answer.batching(|mut it| (&mut it).map_while(|x| x).sum1::<u64>());
+        dbg!(answer.clone().collect::<Vec<_>>());
+
+        let answer = answer.map(Reverse);
+        dbg!(answer.clone().collect::<Vec<_>>());
+
+        let answer = answer.k_smallest(2);
+        dbg!(answer.clone().collect::<Vec<_>>());
+
+        let answer = answer.map(|x| x.0);
+        dbg!(answer.clone().collect::<Vec<_>>());
+
+        let answer = answer.collect::<Vec<_>>();
+        println!("example run {:?}", answer);
+    }
+    {
+        println!("\n-----------------------------------------------\n");
+        let mut v = vec![1_i32, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        v.sort_by_key(|x| *x);
+        println!("v, sorted: {:?}", v);
+        println!("\n-----------------------------------------------\n");
     }
     {
         // Advent_of_Code 01_a
@@ -50,7 +65,6 @@ fn main() {
             .sum::<u64>();
         println!("Day_01, Part_01 answer: {answer:?}")
     }
-
 
     // Hmmmmm..... re: `Reverse`
     // looking into where it's defined it seems like it may
