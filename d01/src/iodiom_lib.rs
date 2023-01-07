@@ -8,16 +8,6 @@ use std::cmp::Reverse;
 
 fn main() {
     {
-        // Just hooking up `explore.rs`
-        let a = 12 + 3;
-        let b = 3 + a;
-        let c: i32 = 17;
-
-        let sum = explore::add_three(a, b, c);
-        explore::print_to_test_sourcing(sum);
-    }
-
-    {
         let boop = (1..=3).sum1::<i32>();
         println!("{boop:?}");
     }
@@ -100,4 +90,3 @@ fn main() {
         println!("Day_01, Part_02 answer: {answer:?}")
     }
 }
-
