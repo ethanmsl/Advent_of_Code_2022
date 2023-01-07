@@ -1,8 +1,8 @@
-//! main.rs docs
+//! idiom_lib
 //! More idiomatic rust based on other people's approaches
 //! To contrast with whatever answer I clomped together and highlight growth opps
 
-use d01::explore;
+use crate::explore;
 use itertools::Itertools;
 use std::cmp::Reverse;
 
@@ -55,7 +55,7 @@ fn main() {
     }
     {
         // Advent_of_Code 01_a
-        let answer = include_str!("../../input")
+        let answer = include_str!("../input")
             .lines()
             .map(|v| v.parse::<u64>().ok())
             .batching(|mut it| (&mut it).map_while(|x| x).sum1::<u64>())
@@ -72,7 +72,7 @@ fn main() {
     // that it becomes reasonable ... I must consider and look into further...
     {
         // Advent_of_Code 01_a
-        let answer = include_str!("../../input")
+        let answer = include_str!("../input")
             // str_slice ~~> iterator (with properties)
             .lines()
             // iter_str_slice ~~> iter_<u64>Result (unsigned, no celery in elves' packs!)
@@ -100,3 +100,4 @@ fn main() {
         println!("Day_01, Part_02 answer: {answer:?}")
     }
 }
+

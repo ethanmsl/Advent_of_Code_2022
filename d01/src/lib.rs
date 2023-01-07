@@ -6,3 +6,6 @@
 //! run in the scope of module where they are written.
 
 pub mod explore;
+pub mod raw_lib;
+pub mod iodiom_lib;
+

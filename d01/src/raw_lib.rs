@@ -1,8 +1,15 @@
+//! raw_lib
+
 // read input from a text file
 use std::fs;
 
-fn main() {
+pub fn get_input() -> String {
     let input = fs::read_to_string("input").expect("Error reading input file");
+    input
+}
+
+pub fn sum_chunks_of_string(input: &str) -> Vec<u64> {
+    // split by lines; return iterator
     let lines = input.lines();
 
     // []
@@ -33,14 +40,25 @@ fn main() {
         }
     }
 
+    elf_vec
+}
+
+/////////////////////// Part_1 ///////////////////////
+pub fn give_max<T: Ord + Copy>(elf_vec: &Vec<T>) -> T {
     // retun max value
     let max_elf_val = elf_vec.iter().max().unwrap();
-    println!("max_elf_val: {}", max_elf_val);
-
-    // return sum top 3 values of vector
-    // apparently I can't chain the sort & reverse since they don't return the vector
-    elf_vec.sort();
-    elf_vec.reverse();
-    let sum_top_3 = elf_vec[0..3].iter().sum::<u64>();
-    println!("sum_top_3: {}", sum_top_3);
+    // let x = *max_elf_val;
+    // x.clone()
+    *max_elf_val // derefing
 }
+
+/////////////////////// Part_2 ///////////////////////
+// pub fn give_top_three_sum<T: Ord + Copy + core::iter::Sum>(elf_vec: Vec<T>) -> T {
+//     // return sum top 3 values of vector
+//     // apparently I can't chain the sort & reverse since they don't return the vector
+//     elf_vec.sort();
+//     elf_vec.reverse();
+//     let sum_top_3 = elf_vec[0..3].iter().sum::<T>();
+//
+//     sum_top_3
+// }
