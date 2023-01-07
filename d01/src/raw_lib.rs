@@ -53,12 +53,22 @@ pub fn give_max<T: Ord + Copy>(elf_vec: &Vec<T>) -> T {
 }
 
 /////////////////////// Part_2 ///////////////////////
-// pub fn give_top_three_sum<T: Ord + Copy + core::iter::Sum>(elf_vec: Vec<T>) -> T {
-//     // return sum top 3 values of vector
-//     // apparently I can't chain the sort & reverse since they don't return the vector
-//     elf_vec.sort();
-//     elf_vec.reverse();
-//     let sum_top_3 = elf_vec[0..3].iter().sum::<T>();
-//
-//     sum_top_3
-// }
+pub fn give_top_three_sum<T: Ord + Copy + std::iter::Sum>(elf_vec: Vec<T>) -> T {
+    // return sum top 3 values of vector
+    // apparently I can't chain the sort & reverse since they don't return the vector
+    let mut sort_vec = elf_vec.clone();
+    sort_vec.sort();
+    sort_vec.reverse();
+    // sum the top three values
+    let sum_top_3: T = sort_vec[0..3].iter().copied().sum::<T>();
+    //                                        ^ needed otherwise
+    //                              complaints that Sum over &T not implemented
+    //                              seems very strange to me that it would operate
+    //                              on T and not &T
+    //                              ... perhaps there are good reasons ...
+    //                              (if I followed its syntax suggestions to do so
+    //                              it then required lifetime annotations
+    //                              and its suggested fixes were *quite* strict!)
+
+    sum_top_3
+}

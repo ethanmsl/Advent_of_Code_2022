@@ -42,6 +42,7 @@ pub fn add_three(n1: i32, n2: i32, n3: i32) -> i32 {
 /// let result = mult_three(1, 2, 3);
 /// assert_eq!(result, 7);
 /// ```
+#[allow(dead_code)]
 fn mult_three(n1: i32, n2: i32, n3: i32) -> i32 {
     n1 * n2 * n3
 }
