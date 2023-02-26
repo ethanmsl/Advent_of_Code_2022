@@ -55,6 +55,7 @@ pub fn solution_b() -> u64 {
     answer
 }
 
+#[allow(dead_code)]
 fn explore() {
     {
         let boop = (1..=3).sum1::<i32>();
